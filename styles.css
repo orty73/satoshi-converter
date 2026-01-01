@@ -134,3 +134,11 @@ details p { margin: 8px 0 0; color: var(--muted); }
   .row { grid-template-columns: 1fr; }
   .results { grid-template-columns: 1fr; }
 }
+.fixed-currency{
+  width: 100%;
+  background: rgba(255,255,255,.06);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 12px 12px;
+  color: var(--text);
+}

@@ -90,12 +90,12 @@
           <input id="amount" inputmode="decimal" autocomplete="off" placeholder="100" value="100" />
         </div>
 
-        <div class="row">
+        <div class="row" style="display:none;">
           <label for="currency">Currency</label>
-          <select id="currency">
-            <option value="eur" selected>EUR — Euro</option>
+          <select id="currency" disabled>
+            <option value="eur">EUR — Euro</option>
             <option value="usd">USD — US Dollar</option>
-            <option value="gbp">GBP — British Pound</option>
+            <option value="gbp" selected>GBP — British Pound</option>
             <option value="chf">CHF — Swiss Franc</option>
             <option value="cad">CAD — Canadian Dollar</option>
             <option value="aud">AUD — Australian Dollar</option>

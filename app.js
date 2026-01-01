@@ -49,9 +49,21 @@ function computeAndRender() {
     return;
   }
 
-  // fiat -> BTC
-  const btc = amount / lastPrice;
+  // If BTC mode: amount is already BTC
+if (lastCurrency === "btc") {
+  const btc = amount;
   const sats = btc * SATS_PER_BTC;
+
+  btcOutEl.textContent = formatNumber(btc, { maximumFractionDigits: 8 });
+  satOutEl.textContent = formatNumber(Math.round(sats), { maximumFractionDigits: 0 });
+  setStatus("");
+  return;
+}
+
+// fiat -> BTC (default)
+const btc = amount / lastPrice;
+const sats = btc * SATS_PER_BTC;
+
 
   btcOutEl.textContent = formatNumber(btc, { maximumFractionDigits: 8 });
   satOutEl.textContent = formatNumber(Math.round(sats), { maximumFractionDigits: 0 });

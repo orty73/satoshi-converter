@@ -74,6 +74,15 @@ const sats = btc * SATS_PER_BTC;
 async function fetchPrice(currency) {
   if (inflight) return;
   inflight = true;
+if (currency === "btc") {
+  lastPrice = 1;
+  lastCurrency = "btc";
+  lastUpdateEl.textContent = "—";
+  setStatus("");
+  computeAndRender();
+  inflight = false;
+  return;
+}
 
   try {
     setStatus("Fetching latest BTC price…");

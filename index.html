@@ -2,66 +2,39 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="google-site-verification" content="oqPigQ6KXuXqX9iOWO8DuprwvOO921Igd0EBhLAEupI" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>Satoshi Converter — Convert EUR, USD to Bitcoin & Satoshis</title>
-  <meta name="description" content="Instantly convert euros, dollars and other fiat currencies to Bitcoin (BTC) and satoshis using real-time BTC prices." />
+  <title>Satoshi Converter — Bitcoin & Fiat to Satoshis</title>
+  <meta name="description" content="Convert Bitcoin (BTC) and fiat currencies like EUR, USD, GBP or CAD into satoshis. Simple, fast and accurate satoshi converters." />
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://satoshi-converter.com/" />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Satoshi Converter — Fiat to Bitcoin & Satoshis" />
-  <meta property="og:description" content="Convert EUR, USD and more into BTC and satoshis with real-time prices." />
+  <meta property="og:title" content="Satoshi Converter — Bitcoin & Fiat to Satoshis" />
+  <meta property="og:description" content="All satoshi converters in one place: BTC, EUR, USD, GBP, CAD to sats." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://satoshi-converter.com/" />
 
   <link rel="stylesheet" href="/styles.css" />
 
-  <!-- Schema.org (WebApplication + FAQ) -->
+  <!-- Schema.org: CollectionPage + ItemList -->
   <script type="application/ld+json">
   {
-    "@context":"https://schema.org",
-    "@type":"WebApplication",
-    "name":"Satoshi Converter",
-    "url":"https://satoshi-converter.com/",
-    "applicationCategory":"FinanceApplication",
-    "operatingSystem":"All",
-    "description":"Convert fiat currencies like EUR and USD into Bitcoin (BTC) and satoshis using real-time BTC prices."
-  }
-  </script>
-
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"FAQPage",
-    "mainEntity":[
-      {
-        "@type":"Question",
-        "name":"What is a satoshi?",
-        "acceptedAnswer":{"@type":"Answer","text":"A satoshi (sat) is the smallest unit of Bitcoin. 1 satoshi equals 0.00000001 BTC."}
-      },
-      {
-        "@type":"Question",
-        "name":"How many satoshis are in one Bitcoin?",
-        "acceptedAnswer":{"@type":"Answer","text":"There are 100,000,000 satoshis (sats) in 1 Bitcoin (BTC)."}
-      },
-      {
-        "@type":"Question",
-        "name":"Is the Bitcoin price updated in real time?",
-        "acceptedAnswer":{"@type":"Answer","text":"This converter refreshes the BTC price periodically and uses the latest available market data from a public pricing API."}
-      },
-      {
-        "@type":"Question",
-        "name":"Can I convert any fiat currency to satoshis?",
-        "acceptedAnswer":{"@type":"Answer","text":"You can convert many common fiat currencies (EUR, USD, GBP and more). Availability depends on the pricing API coverage."}
-      },
-      {
-        "@type":"Question",
-        "name":"Is this satoshi converter free?",
-        "acceptedAnswer":{"@type":"Answer","text":"Yes. It is a free tool to quickly estimate BTC and satoshi amounts from fiat currencies."}
-      }
-    ]
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Satoshi Converter Hub",
+    "url": "https://satoshi-converter.com/",
+    "description": "Convert Bitcoin and fiat currencies into satoshis using simple and accurate online converters.",
+    "mainEntity": {
+      "@type": "ItemList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "url": "https://satoshi-converter.com/btc-to-satoshi/" },
+        { "@type": "ListItem", "position": 2, "url": "https://satoshi-converter.com/eur-to-satoshi/" },
+        { "@type": "ListItem", "position": 3, "url": "https://satoshi-converter.com/usd-to-satoshi/" },
+        { "@type": "ListItem", "position": 4, "url": "https://satoshi-converter.com/gbp-to-satoshi/" },
+        { "@type": "ListItem", "position": 5, "url": "https://satoshi-converter.com/cad-to-satoshi/" }
+      ]
+    }
   }
   </script>
 </head>
@@ -70,105 +43,84 @@
   <header class="wrap">
     <a class="brand" href="/">Satoshi Converter</a>
     <nav class="nav">
+      <a href="#converters">Converters</a>
+      <a href="#about">About</a>
       <a href="#faq">FAQ</a>
     </nav>
   </header>
 
   <main class="wrap">
     <section class="hero">
-      <h1>Satoshi Converter — Fiat to Bitcoin & Satoshis</h1>
+      <h1>Bitcoin & Satoshi Converter</h1>
       <p class="subtitle">
-        Instantly convert EUR, USD and other fiat currencies into <strong>BTC</strong> and <strong>satoshis</strong> using real-time market prices.
+        Convert <strong>Bitcoin (BTC)</strong> and major fiat currencies like
+        <strong>EUR, USD, GBP or CAD</strong> into <strong>satoshis (sats)</strong>.
+        A satoshi is the smallest unit of Bitcoin: <strong>1 BTC = 100,000,000 sats</strong>.
       </p>
 
-      <div class="card">
-        <div class="row">
-          <label for="amount">Amount</label>
-          <input id="amount" inputmode="decimal" autocomplete="off" placeholder="100" value="100" />
-        </div>
+      <!-- MAIN HUB -->
+      <div class="card" id="converters">
+        <h2>All converters</h2>
+        <ul class="hub-list">
+          <li>
+            <a href="/btc-to-satoshi/"><strong>BTC to satoshi converter</strong></a>
+            <span>— Exact conversion (1 BTC = 100,000,000 sats)</span>
+          </li>
+          <li>
+            <a href="/eur-to-satoshi/"><strong>EUR to satoshi converter</strong></a>
+            <span>— Convert euros to sats using market price</span>
+          </li>
+          <li>
+            <a href="/usd-to-satoshi/"><strong>USD to satoshi converter</strong></a>
+            <span>— Convert US dollars to sats</span>
+          </li>
+          <li>
+            <a href="/gbp-to-satoshi/"><strong>GBP to satoshi converter</strong></a>
+            <span>— Convert British pounds to sats</span>
+          </li>
+          <li>
+            <a href="/cad-to-satoshi/"><strong>CAD to satoshi converter</strong></a>
+            <span>— Convert Canadian dollars to sats</span>
+          </li>
+        </ul>
 
-        <div class="row">
-          <label for="currency">Currency</label>
-          <select id="currency">
-            <option value="eur" selected>EUR — Euro</option>
-            <option value="usd">USD — US Dollar</option>
-            <option value="gbp">GBP — British Pound</option>
-            <option value="chf">CHF — Swiss Franc</option>
-            <option value="cad">CAD — Canadian Dollar</option>
-            <option value="aud">AUD — Australian Dollar</option>
-            <option value="jpy">JPY — Japanese Yen</option>
-            <option value="sek">SEK — Swedish Krona</option>
-            <option value="nok">NOK — Norwegian Krone</option>
-            <option value="dkk">DKK — Danish Krone</option>
-          </select>
-        </div>
-
-        <div class="results">
-          <div class="result">
-            <div class="k">Bitcoin (BTC)</div>
-            <div class="v" id="btcOut">—</div>
-          </div>
-          <div class="result">
-            <div class="k">Satoshis (sats)</div>
-            <div class="v" id="satOut">—</div>
-          </div>
-        </div>
-
-        <div class="meta">
-          <div>Price source: <span id="sourceName">CoinGecko</span></div>
-          <div>Last update: <span id="lastUpdate">—</span></div>
-        </div>
-
-        <div class="actions">
-          <button id="copyBtn" type="button">Copy result</button>
-          <button id="refreshBtn" type="button" class="secondary">Refresh price</button>
-        </div>
-
-        <p class="note" id="statusNote" aria-live="polite"></p>
+        <p class="note">
+          This page links to all available converters and helps search engines
+          discover and index them efficiently.
+        </p>
       </div>
 
-      <!-- Adsense placeholder (enable after approval) -->
-      <div class="ad-slot" aria-label="Advertisement">
-        <div class="ad-inner">Ad slot (enable after AdSense approval)</div>
-      </div>
-
-      <section class="seo">
-        <h2>Convert fiat to BTC and satoshis</h2>
+      <!-- ABOUT -->
+      <section class="seo" id="about">
+        <h2>What is a satoshi?</h2>
         <p>
-          This satoshi converter helps you quickly estimate how much <strong>Bitcoin (BTC)</strong> and how many <strong>satoshis</strong>
-          you get for a given fiat amount (EUR, USD, GBP and more). A satoshi is the smallest unit of Bitcoin: <strong>1 sat = 0.00000001 BTC</strong>.
+          A satoshi (sat) is the smallest unit of Bitcoin.
+          Instead of dealing with decimals like 0.00001234 BTC,
+          satoshis make Bitcoin amounts easier to read and understand.
         </p>
         <p>
-          Prices move constantly, so results are estimates based on the latest available market price.
+          This website provides simple tools to convert BTC or fiat currencies
+          into satoshis, using either fixed formulas or current market prices.
         </p>
       </section>
 
+      <!-- FAQ -->
       <section id="faq" class="faq">
         <h2>Frequently Asked Questions</h2>
 
         <details>
-          <summary>What is a satoshi?</summary>
-          <p>A satoshi (sat) is the smallest unit of Bitcoin. 1 satoshi equals 0.00000001 BTC.</p>
-        </details>
-
-        <details>
           <summary>How many satoshis are in one Bitcoin?</summary>
-          <p>There are 100,000,000 satoshis (sats) in 1 Bitcoin (BTC).</p>
+          <p>There are exactly 100,000,000 satoshis (sats) in 1 Bitcoin (BTC).</p>
         </details>
 
         <details>
-          <summary>Is the Bitcoin price updated in real time?</summary>
-          <p>This tool refreshes pricing periodically and uses the latest available market data from a public pricing API.</p>
-        </details>
-
-        <details>
-          <summary>Can I convert any fiat currency to satoshis?</summary>
-          <p>You can convert many common fiat currencies. Availability depends on the pricing API coverage.</p>
+          <summary>Are fiat conversions real-time?</summary>
+          <p>Fiat conversions use the latest available Bitcoin market price and provide estimated results.</p>
         </details>
 
         <details>
           <summary>Is this satoshi converter free?</summary>
-          <p>Yes. It’s a free tool to quickly estimate BTC and satoshi amounts from fiat currencies.</p>
+          <p>Yes. All converters on this website are free to use.</p>
         </details>
       </section>
 
@@ -180,6 +132,8 @@
     </section>
   </main>
 
-  <script src="/app.js" defer></script>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>

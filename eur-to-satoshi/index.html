@@ -88,21 +88,20 @@
           <input id="amount" inputmode="decimal" autocomplete="off" placeholder="100" value="100" />
         </div>
 
-        <div class="row">
-          <label for="currency">Currency</label>
-          <select id="currency">
-            <option value="eur" selected>EUR — Euro</option>
-            <option value="usd">USD — US Dollar</option>
-            <option value="gbp">GBP — British Pound</option>
-            <option value="chf">CHF — Swiss Franc</option>
-            <option value="cad">CAD — Canadian Dollar</option>
-            <option value="aud">AUD — Australian Dollar</option>
-            <option value="jpy">JPY — Japanese Yen</option>
-            <option value="sek">SEK — Swedish Krona</option>
-            <option value="nok">NOK — Norwegian Krone</option>
-            <option value="dkk">DKK — Danish Krone</option>
-          </select>
-        </div>
+        <div class="row" style="display:none;">
+  <label for="currency">Currency</label>
+  <select id="currency" disabled>
+    <option value="eur" selected>EUR — Euro</option>
+  </select>
+</div>
+
+<div class="row">
+  <label>Currency</label>
+  <div style="padding:12px 12px; border:1px solid rgba(255,255,255,.12); border-radius:14px; background:rgba(255,255,255,.06);">
+    EUR — Euro
+  </div>
+</div>
+
 
         <div class="results">
           <div class="result">

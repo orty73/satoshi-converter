@@ -10,8 +10,7 @@ const copyBtn = document.getElementById("copyBtn");
 const refreshBtn = document.getElementById("refreshBtn");
 document.getElementById("year").textContent = String(new Date().getFullYear());
 
-let lastPrice = null; // BTC price in selected fiat, i.e. 1 BTC = X fiat
-let lastCurrency = currencyEl.value;
+let lastPrice = null; // 1 BTC = X fiat
 let inflight = false;
 
 function formatNumber(n, opts = {}) {
@@ -23,7 +22,6 @@ function formatNumber(n, opts = {}) {
 }
 
 function sanitizeAmount(value) {
-  // Allow "100", "100.5", "100,5"
   const v = String(value).trim().replace(",", ".");
   const num = Number(v);
   if (!Number.isFinite(num) || num < 0) return null;
@@ -36,12 +34,14 @@ function setStatus(msg) {
 
 function computeAndRender() {
   const amount = sanitizeAmount(amountEl.value);
+
   if (amount === null) {
     btcOutEl.textContent = "—";
     satOutEl.textContent = "—";
     setStatus("Enter a valid amount.");
     return;
   }
+
   if (!lastPrice) {
     btcOutEl.textContent = "—";
     satOutEl.textContent = "—";
@@ -49,29 +49,23 @@ function computeAndRender() {
     return;
   }
 
- 
-
-// fiat -> BTC (default)
-const btc = amount / lastPrice;
-const sats = btc * SATS_PER_BTC;
-
+  const btc = amount / lastPrice;
+  const sats = btc * SATS_PER_BTC;
 
   btcOutEl.textContent = formatNumber(btc, { maximumFractionDigits: 8 });
   satOutEl.textContent = formatNumber(Math.round(sats), { maximumFractionDigits: 0 });
-
   setStatus("");
 }
 
 async function fetchPrice(currency) {
   if (inflight) return;
   inflight = true;
-}
 
   try {
     setStatus("Fetching latest BTC price…");
-    // CoinGecko simple price endpoint
+
     const url = `https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=${encodeURIComponent(currency)}`;
-    const res = await fetch(url, { headers: { "accept": "application/json" } });
+    const res = await fetch(url, { headers: { accept: "application/json" } });
 
     if (!res.ok) throw new Error(`Price request failed (${res.status})`);
     const data = await res.json();
@@ -80,12 +74,8 @@ async function fetchPrice(currency) {
     if (!Number.isFinite(price) || price <= 0) throw new Error("Invalid price received");
 
     lastPrice = price;
-    lastCurrency = currency;
-
-    const now = new Date();
-    lastUpdateEl.textContent = now.toLocaleString();
+    lastUpdateEl.textContent = new Date().toLocaleString();
     setStatus("");
-
     computeAndRender();
   } catch (e) {
     lastPrice = null;
@@ -97,11 +87,13 @@ async function fetchPrice(currency) {
 }
 
 // Events
-amountEl.addEventListener("input", () => computeAndRender());
-currencyEl.addEventListener("change", async () => {
-  const c = currencyEl.value;
-  await fetchPrice(c);
-});
+amountEl.addEventListener("input", computeAndRender);
+
+if (currencyEl) {
+  currencyEl.addEventListener("change", async () => {
+    await fetchPrice(currencyEl.value);
+  });
+}
 
 refreshBtn.addEventListener("click", async () => {
   await fetchPrice(currencyEl.value);
@@ -126,6 +118,6 @@ copyBtn.addEventListener("click", async () => {
   }
 });
 
-// Initial load
+// Initial
 fetchPrice(currencyEl.value);
-setInterval(() => fetchPrice(currencyEl.value), 60_000); // refresh every 60s
+setInterval(() => fetchPrice(currencyEl.value), 60_000);

@@ -49,16 +49,7 @@ function computeAndRender() {
     return;
   }
 
-  // If BTC mode: amount is already BTC
-if (lastCurrency === "btc") {
-  const btc = amount;
-  const sats = btc * SATS_PER_BTC;
-
-  btcOutEl.textContent = formatNumber(btc, { maximumFractionDigits: 8 });
-  satOutEl.textContent = formatNumber(Math.round(sats), { maximumFractionDigits: 0 });
-  setStatus("");
-  return;
-}
+ 
 
 // fiat -> BTC (default)
 const btc = amount / lastPrice;
@@ -74,14 +65,6 @@ const sats = btc * SATS_PER_BTC;
 async function fetchPrice(currency) {
   if (inflight) return;
   inflight = true;
-if (currency === "btc") {
-  lastPrice = 1;
-  lastCurrency = "btc";
-  lastUpdateEl.textContent = "—";
-  setStatus("");
-  computeAndRender();
-  inflight = false;
-  return;
 }
 
   try {

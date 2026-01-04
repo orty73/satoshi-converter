@@ -52,4 +52,65 @@
     <section class="hero">
       <h1>50 EUR to Satoshi</h1>
       <p class="subtitle">
-        Convert <strong>50 euros (EUR)
+        Convert <strong>50 euros (EUR)</strong> to <strong>satoshis (sats)</strong>
+        using the current Bitcoin price.
+      </p>
+
+      <div class="card">
+        <p class="result-big">
+          <strong id="result">— satoshis</strong>
+        </p>
+
+        <p class="note">
+          This conversion is an estimate based on the latest BTC market price.
+        </p>
+      </div>
+
+      <section class="seo">
+        <h2>50 euros to satoshi conversion</h2>
+        <p>
+          This page converts 50 euros into satoshis using the current Bitcoin price.
+          As Bitcoin price changes constantly, the result may vary.
+        </p>
+      </section>
+
+      <section class="related">
+        <h2>Related converters</h2>
+        <ul>
+          <li><a href="/eur-to-satoshi/">EUR to satoshi converter</a></li>
+          <li><a href="/10-eur-to-satoshi/">10 EUR to satoshi</a></li>
+          <li><a href="/100-eur-to-satoshi/">100 EUR to satoshi</a></li>
+        </ul>
+      </section>
+
+      <footer class="footer">
+        <p>© <span id="year"></span> satoshi-converter.com · Not financial advice</p>
+      </footer>
+    </section>
+  </main>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    async function convertEURtoSats() {
+      try {
+        const res = await fetch(
+          "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=eur"
+        );
+        const data = await res.json();
+
+        const btcPriceEUR = data.bitcoin.eur;
+        const sats = Math.round((50 / btcPriceEUR) * 100000000);
+
+        document.getElementById("result").textContent =
+          sats.toLocaleString() + " satoshis";
+      } catch (e) {
+        document.getElementById("result").textContent =
+          "Conversion unavailable";
+      }
+    }
+
+    convertEURtoSats();
+  </script>
+</body>
+</html>

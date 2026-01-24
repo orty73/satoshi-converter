@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>1000 CHF to Satoshi | Convert 1000 Swiss Francs to Sats</title>
+<meta name="description" content="Convert 1000 CHF to satoshis using the current Bitcoin price." />
+<meta name="robots" content="index,follow" />
+<link rel="canonical" href="https://satoshi-converter.com/1000-chf-to-satoshi/" />
+<link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+<header class="wrap"><a class="brand" href="/">Satoshi Converter</a></header>
+
+<main class="wrap"><section class="hero">
+<h1>1000 CHF to Satoshi</h1>
+<p class="subtitle">Convert <strong>1000 Swiss francs (CHF)</strong> to <strong>satoshis</strong> using the current Bitcoin price.</p>
+
+<div class="card"><p class="result-big"><strong id="result">— satoshis</strong></p></div>
+
+<footer class="footer"><p>© <span id="year"></span> satoshi-converter.com</p></footer>
+</section></main>
+
+<script>
+document.getElementById("year").textContent=new Date().getFullYear();
+fetch("https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=chf")
+.then(r=>r.json()).then(d=>{
+const sats=Math.round((1000/d.bitcoin.chf)*100000000);
+document.getElementById("result").textContent=sats.toLocaleString()+" satoshis";
+}).catch(()=>{document.getElementById("result").textContent="Conversion unavailable";});
+</script>
+</body>
+</html>

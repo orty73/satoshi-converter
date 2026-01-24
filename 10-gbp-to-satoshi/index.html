@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>10 GBP to Satoshi | Convert 10 Pounds to Sats</title>
+  <meta name="description" content="Convert 10 GBP to satoshis using the current Bitcoin price. See how many sats you get for 10 British pounds." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://satoshi-converter.com/10-gbp-to-satoshi/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="10 GBP to Satoshi Converter" />
+  <meta property="og:description" content="Convert 10 British pounds to satoshis using the current BTC price." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://satoshi-converter.com/10-gbp-to-satoshi/" />
+
+  <link rel="stylesheet" href="/styles.css" />
+
+  <!-- FAQ Schema -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {
+        "@type":"Question",
+        "name":"How many satoshis is 10 pounds?",
+        "acceptedAnswer":{"@type":"Answer","text":"The number of satoshis you get for 10 pounds depends on the current Bitcoin price."}
+      },
+      {
+        "@type":"Question",
+        "name":"Is the GBP to satoshi conversion real-time?",
+        "acceptedAnswer":{"@type":"Answer","text":"Yes. This conversion uses the latest available Bitcoin market price."}
+      },
+      {
+        "@type":"Question",
+        "name":"Is this GBP to satoshi converter free?",
+        "acceptedAnswer":{"@type":"Answer","text":"Yes. This tool is free to use."}
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body>
+  <header class="wrap">
+    <a class="brand" href="/">Satoshi Converter</a>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <h1>10 GBP to Satoshi</h1>
+      <p class="subtitle">
+        Convert <strong>10 British pounds (GBP)</strong> to <strong>satoshis (sats)</strong>
+        using the current Bitcoin price.
+      </p>
+
+      <div class="card">
+        <p class="result-big">
+          <strong id="result">— satoshis</strong>
+        </p>
+
+        <p class="note">
+          This conversion is an estimate based on the latest BTC market price.
+        </p>
+      </div>
+
+      <section class="seo">
+        <h2>10 pounds to satoshi conversion</h2>
+        <p>
+          This page converts 10 British pounds into satoshis using the current Bitcoin price.
+          As Bitcoin price changes constantly, the result may vary.
+        </p>
+      </section>
+
+      <section class="related">
+        <h2>Related converters</h2>
+        <ul>
+          <li><a href="/gbp-to-satoshi/">GBP to satoshi converter</a></li>
+          <li><a href="/usd-to-satoshi/">USD to satoshi converter</a></li>
+          <li><a href="/btc-to-satoshi/">BTC to satoshi converter</a></li>
+        </ul>
+      </section>
+
+      <footer class="footer">
+        <p>© <span id="year"></span> satoshi-converter.com · Not financial advice</p>
+      </footer>
+    </section>
+  </main>
+
+  <script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  async function convertGBPtoSats() {
+    try {
+      const res = await fetch(
+        "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=gbp"
+      );
+      const data = await res.json();
+
+      const btcPriceGBP = data.bitcoin.gbp;
+      const sats = Math.round((10 / btcPriceGBP) * 100000000);
+
+      document.getElementById("result").textContent =
+        sats.toLocaleString() + " satoshis";
+    } catch (e) {
+      document.getElementById("result").textContent =
+        "Conversion unavailable";
+    }
+  }
+
+  convertGBPtoSats();
+  </script>
+
+</body>
+</html>

@@ -1,5 +1,6 @@
 const SATS_PER_BTC = 100_000_000;
 
+// Elements (may not exist on every page)
 const amountEl = document.getElementById("amount");
 const currencyEl = document.getElementById("currency");
 const btcOutEl = document.getElementById("btcOut");
@@ -8,7 +9,9 @@ const lastUpdateEl = document.getElementById("lastUpdate");
 const statusNoteEl = document.getElementById("statusNote");
 const copyBtn = document.getElementById("copyBtn");
 const refreshBtn = document.getElementById("refreshBtn");
-document.getElementById("year").textContent = String(new Date().getFullYear());
+const yearEl = document.getElementById("year");
+
+if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 
 let lastPrice = null; // 1 BTC = X fiat
 let inflight = false;
@@ -22,17 +25,43 @@ function formatNumber(n, opts = {}) {
 }
 
 function sanitizeAmount(value) {
-  const v = String(value).trim().replace(",", ".");
+  const v = String(value ?? "").trim().replace(",", ".");
   const num = Number(v);
   if (!Number.isFinite(num) || num < 0) return null;
   return num;
 }
 
 function setStatus(msg) {
-  statusNoteEl.textContent = msg || "";
+  if (statusNoteEl) statusNoteEl.textContent = msg || "";
+}
+
+function detectCurrencyFromPath() {
+  // Examples:
+  // /aud-to-satoshi/ -> aud
+  // /chf-to-satoshi/ -> chf
+  // /10-eur-to-satoshi/ -> eur
+  const path = (location.pathname || "").toLowerCase();
+
+  // Prefer 3-letter currency before "-to-satoshi"
+  const m1 = path.match(/\/([a-z]{3})-to-satoshi\/?$/);
+  if (m1?.[1]) return m1[1];
+
+  // Long-tail like /10-eur-to-satoshi/
+  const m2 = path.match(/-([a-z]{3})-to-satoshi\/?$/);
+  if (m2?.[1]) return m2[1];
+
+  return null;
+}
+
+function getCurrency() {
+  // Priority: select value > URL detection > fallback
+  const c = (currencyEl && currencyEl.value) ? currencyEl.value : detectCurrencyFromPath();
+  return (c || "usd").toLowerCase();
 }
 
 function computeAndRender() {
+  if (!amountEl || !btcOutEl || !satOutEl) return;
+
   const amount = sanitizeAmount(amountEl.value);
 
   if (amount === null) {
@@ -74,7 +103,8 @@ async function fetchPrice(currency) {
     if (!Number.isFinite(price) || price <= 0) throw new Error("Invalid price received");
 
     lastPrice = price;
-    lastUpdateEl.textContent = new Date().toLocaleString();
+
+    if (lastUpdateEl) lastUpdateEl.textContent = new Date().toLocaleString();
     setStatus("");
     computeAndRender();
   } catch (e) {
@@ -87,37 +117,44 @@ async function fetchPrice(currency) {
 }
 
 // Events
-amountEl.addEventListener("input", computeAndRender);
+if (amountEl) amountEl.addEventListener("input", computeAndRender);
 
 if (currencyEl) {
   currencyEl.addEventListener("change", async () => {
-    await fetchPrice(currencyEl.value);
+    await fetchPrice(getCurrency());
   });
 }
 
-refreshBtn.addEventListener("click", async () => {
-  await fetchPrice(currencyEl.value);
-});
+if (refreshBtn) {
+  refreshBtn.addEventListener("click", async () => {
+    await fetchPrice(getCurrency());
+  });
+}
 
-copyBtn.addEventListener("click", async () => {
-  const amount = sanitizeAmount(amountEl.value);
-  if (amount === null || !lastPrice) return;
+if (copyBtn) {
+  copyBtn.addEventListener("click", async () => {
+    if (!amountEl || !btcOutEl || !satOutEl) return;
 
-  const btcText = btcOutEl.textContent;
-  const satText = satOutEl.textContent;
-  const cur = currencyEl.value.toUpperCase();
+    const amount = sanitizeAmount(amountEl.value);
+    if (amount === null || !lastPrice) return;
 
-  const text = `${formatNumber(amount)} ${cur} ≈ ${btcText} BTC ≈ ${satText} sats (via satoshi-converter.com)`;
+    const btcText = btcOutEl.textContent;
+    const satText = satOutEl.textContent;
+    const cur = getCurrency().toUpperCase();
 
-  try {
-    await navigator.clipboard.writeText(text);
-    setStatus("Copied to clipboard.");
-    setTimeout(() => setStatus(""), 1500);
-  } catch {
-    setStatus("Copy failed (browser blocked).");
-  }
-});
+    const text = `${formatNumber(amount)} ${cur} ≈ ${btcText} BTC ≈ ${satText} sats (via satoshi-converter.com)`;
+
+    try {
+      await navigator.clipboard.writeText(text);
+      setStatus("Copied to clipboard.");
+      setTimeout(() => setStatus(""), 1500);
+    } catch {
+      setStatus("Copy failed (browser blocked).");
+    }
+  });
+}
 
 // Initial
-fetchPrice(currencyEl.value);
-setInterval(() => fetchPrice(currencyEl.value), 60_000);
+const initialCurrency = getCurrency();
+fetchPrice(initialCurrency);
+setInterval(() => fetchPrice(getCurrency()), 60_000);

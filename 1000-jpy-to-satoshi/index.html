@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>1000 JPY to Satoshi | Convert 1000 Yen to Sats</title>
+  <meta name="description" content="Convert 1000 JPY to satoshis using the current Bitcoin price. See how many sats you get for 1000 Japanese yen." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://satoshi-converter.com/1000-jpy-to-satoshi/" />
+
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+
+<body>
+<header class="wrap"><a class="brand" href="/">Satoshi Converter</a></header>
+
+<main class="wrap">
+<section class="hero">
+  <h1>1000 JPY to Satoshi</h1>
+  <p class="subtitle">Convert <strong>1000 Japanese yen (JPY)</strong> to <strong>satoshis (sats)</strong> using the current Bitcoin price.</p>
+
+  <div class="card">
+    <p class="result-big"><strong id="result">— satoshis</strong></p>
+    <p class="note">Estimate based on the latest BTC market price.</p>
+  </div>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> satoshi-converter.com · Not financial advice</p>
+  </footer>
+</section>
+</main>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+
+async function convert() {
+  try {
+    const res = await fetch("https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=jpy");
+    const data = await res.json();
+    const sats = Math.round((1000 / data.bitcoin.jpy) * 100000000);
+    document.getElementById("result").textContent = sats.toLocaleString() + " satoshis";
+  } catch {
+    document.getElementById("result").textContent = "Conversion unavailable";
+  }
+}
+convert();
+</script>
+</body>
+</html>

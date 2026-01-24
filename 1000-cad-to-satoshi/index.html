@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>1000 CAD to Satoshi | Convert 1000 Canadian Dollars to Sats</title>
+  <meta name="description" content="Convert 1000 CAD to satoshis using the current Bitcoin price. See how many sats you get for 1000 Canadian dollars." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://satoshi-converter.com/1000-cad-to-satoshi/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="1000 CAD to Satoshi Converter" />
+  <meta property="og:description" content="Convert 1000 Canadian dollars to satoshis using the current BTC price." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://satoshi-converter.com/1000-cad-to-satoshi/" />
+
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+
+<body>
+  <header class="wrap">
+    <a class="brand" href="/">Satoshi Converter</a>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <h1>1000 CAD to Satoshi</h1>
+      <p class="subtitle">
+        Convert <strong>1000 Canadian dollars (CAD)</strong> to <strong>satoshis (sats)</strong>
+        using the current Bitcoin price.
+      </p>
+
+      <div class="card">
+        <p class="result-big">
+          <strong id="result">— satoshis</strong>
+        </p>
+
+        <p class="note">
+          This conversion is an estimate based on the latest BTC market price.
+        </p>
+      </div>
+
+      <footer class="footer">
+        <p>© <span id="year"></span> satoshi-converter.com · Not financial advice</p>
+      </footer>
+    </section>
+  </main>
+
+  <script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  async function convertCADtoSats() {
+    try {
+      const res = await fetch(
+        "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=cad"
+      );
+      const data = await res.json();
+
+      const btcPriceCAD = data.bitcoin.cad;
+      const sats = Math.round((1000 / btcPriceCAD) * 100000000);
+
+      document.getElementById("result").textContent =
+        sats.toLocaleString() + " satoshis";
+    } catch (e) {
+      document.getElementById("result").textContent =
+        "Conversion unavailable";
+    }
+  }
+
+  convertCADtoSats();
+  </script>
+
+</body>
+</html>

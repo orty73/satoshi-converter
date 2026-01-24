@@ -51,6 +51,18 @@
     <priority>0.8</priority>
   </url>
 
+  <url>
+    <loc>https://satoshi-converter.com/aud-to-satoshi/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://satoshi-converter.com/chf-to-satoshi/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <!-- BTC long-tail pages -->
   <url>
     <loc>https://satoshi-converter.com/0-01-btc-to-satoshi/</loc>

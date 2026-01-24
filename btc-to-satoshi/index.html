@@ -7,20 +7,19 @@
 
   <title>Bitcoin to Satoshi Converter | Convert BTC to Sats</title>
 
-<meta name="description" content="Convert Bitcoin (BTC) to satoshis instantly. One bitcoin equals 100,000,000 sats. Simple and accurate BTC to satoshi converter." />
-
+  <meta name="description" content="Convert Bitcoin (BTC) to satoshis instantly. One bitcoin equals 100,000,000 sats. Simple and accurate BTC to satoshi converter." />
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://satoshi-converter.com/btc-to-satoshi/" />
 
   <!-- Open Graph -->
-    <meta property="og:title" content="BTC to Satoshi Converter — Convert BTC to Sats" />
-<meta property="og:description" content="Convert BTC to satoshis instantly using real-time Bitcoin prices." />
-<meta property="og:url" content="https://satoshi-converter.com/btc-to-satoshi/" />
-<meta property="og:type" content="website" />
+  <meta property="og:title" content="BTC to Satoshi Converter — Convert BTC to Sats" />
+  <meta property="og:description" content="Convert BTC to satoshis instantly using a fixed conversion rate." />
+  <meta property="og:url" content="https://satoshi-converter.com/btc-to-satoshi/" />
+  <meta property="og:type" content="website" />
 
   <link rel="stylesheet" href="/styles.css" />
 
-  <!-- Schema.org (WebApplication + FAQ) -->
+  <!-- Schema.org -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -46,22 +45,22 @@
       {
         "@type":"Question",
         "name":"How many satoshis are in one Bitcoin?",
-        "acceptedAnswer":{"@type":"Answer","text":"There are 100,000,000 satoshis (sats) in 1 Bitcoin (BTC)."}
+        "acceptedAnswer":{"@type":"Answer","text":"There are exactly 100,000,000 satoshis (sats) in 1 Bitcoin (BTC)."}
       },
       {
-  "@type":"Question",
-  "name":"Is the Bitcoin price updated in real time?",
-  "acceptedAnswer":{"@type":"Answer","text":"No. This BTC to satoshi converter uses a fixed conversion rate: 1 BTC = 100,000,000 sats."}
-},
-{
-  "@type":"Question",
-  "name":"Can I convert fiat currencies to satoshis?",
-  "acceptedAnswer":{"@type":"Answer","text":"This page converts BTC to satoshis. To convert fiat currencies like EUR, USD, GBP or CAD, use the dedicated currency converter pages on this site."}
-},
-{
+        "@type":"Question",
+        "name":"Is the Bitcoin price updated in real time?",
+        "acceptedAnswer":{"@type":"Answer","text":"No. This BTC to satoshi converter uses a fixed conversion rate: 1 BTC = 100,000,000 sats."}
+      },
+      {
+        "@type":"Question",
+        "name":"Can I convert fiat currencies to satoshis?",
+        "acceptedAnswer":{"@type":"Answer","text":"This page converts BTC to satoshis. To convert fiat currencies like EUR, USD, GBP or CAD, use the dedicated currency converter pages on this site."}
+      },
+      {
         "@type":"Question",
         "name":"Is this satoshi converter free?",
-        "acceptedAnswer":{"@type":"Answer","text":"Yes. It is a free tool to quickly estimate BTC and satoshi amounts from fiat currencies."}
+        "acceptedAnswer":{"@type":"Answer","text":"Yes. It is a free tool to quickly convert BTC to satoshis."}
       }
     ]
   }
@@ -80,9 +79,9 @@
     <section class="hero">
       <h1>BTC to Satoshis Converter</h1>
 
-<p class="subtitle">
-  Convert Bitcoin (BTC) to satoshis instantly. One bitcoin equals 100,000,000 sats.
-</p>
+      <p class="subtitle">
+        Convert Bitcoin (BTC) to satoshis instantly. One bitcoin equals <strong>100,000,000 sats</strong>.
+      </p>
 
       <div class="card">
         <div class="row">
@@ -90,106 +89,77 @@
           <input id="amount" inputmode="decimal" autocomplete="off" placeholder="1" value="1" />
         </div>
 
-
         <div class="row" style="display:none;">
-  <label for="currency">Currency</label>
-  <select id="currency" disabled>
-    <option value="btc" selected>BTC — Bitcoin</option>
-  </select>
-</div>
-  
-<div class="row">
-  <label>Currency</label>
-  <div style="padding:12px 12px; border:1px solid rgba(255,255,255,.12); border-radius:14px; background:rgba(255,255,255,.06);">
-    BTC — Bitcoin
-  </div>
-</div>
+          <label for="currency">Currency</label>
+          <select id="currency" disabled>
+            <option value="btc" selected>BTC — Bitcoin</option>
+          </select>
+        </div>
 
-
+        <div class="row">
+          <label>Currency</label>
+          <div style="padding:12px;border:1px solid rgba(255,255,255,.12);border-radius:14px;background:rgba(255,255,255,.06);">
+            BTC — Bitcoin
+          </div>
+        </div>
 
         <div class="results">
-  <div class="result" style="width:100%;">
-    <div class="k">Satoshis (sats)</div>
-    <div class="v" id="satOut">—</div>
-  </div>
-</div>
+          <div class="result" style="width:100%;">
+            <div class="k">Satoshis (sats)</div>
+            <div class="v" id="satOut">—</div>
+          </div>
+        </div>
 
-      
         <div class="meta">
           <div>Conversion: <span id="sourceName">Fixed rate</span></div>
-          <div>Last update: <span id="lastUpdate">—</span></div>
+          <div>Rate: <span>1 BTC = 100,000,000 sats</span></div>
         </div>
 
         <div class="actions">
-  <button id="copyBtn" type="button">Copy result</button>
-</div>
-
+          <button id="copyBtn" type="button">Copy result</button>
+        </div>
 
         <p class="note" id="statusNote" aria-live="polite"></p>
       </div>
 
-      <!-- Adsense placeholder (enable after approval) -->
-      <div class="ad-slot" aria-label="Advertisement">
-        <div class="ad-inner">Ad slot (enable after AdSense approval)</div>
-      </div>
+      <!-- Ads -->
+      <div class="ad-slot" aria-label="Advertisement"></div>
 
       <section class="seo">
         <h2>Convert BTC to satoshis (sats)</h2>
-      <p>
-          Use this tool to convert any amount of <strong>Bitcoin (BTC)</strong> into <strong>satoshis</strong> instantly.
-    A satoshi is the smallest unit of Bitcoin: <strong>1 sat = 0.00000001 BTC</strong>.
-        </p>
         <p>
-  This conversion is fixed: <strong>1 BTC = 100,000,000 sats</strong>. Results are exact.
-</p>
+          Use this tool to convert any amount of <strong>Bitcoin (BTC)</strong> into <strong>satoshis</strong>.
+          This conversion is exact and fixed: <strong>1 BTC = 100,000,000 sats</strong>.
+        </p>
       </section>
-<section class="related">
-  <h2>Other currency converters</h2>
-  <ul>
-    <li><a href="/eur-to-satoshi/">EUR to satoshi converter</a></li>
-    <li><a href="/usd-to-satoshi/">USD to satoshi converter</a></li>
-    <li><a href="/gbp-to-satoshi/">GBP to satoshi converter</a></li>
-    <li><a href="/cad-to-satoshi/">CAD to satoshi converter</a></li>
-  </ul>
-</section>
 
-      <section id="faq" class="faq">
-        <h2>Frequently Asked Questions</h2>
+      <!-- 🔗 INTERNAL LINKING : BTC LONG TAIL -->
+      <section class="related">
+        <h2>Popular BTC conversions</h2>
+        <ul>
+          <li><a href="/0-01-btc-to-satoshi/">0.01 BTC to satoshi</a></li>
+          <li><a href="/0-1-btc-to-satoshi/">0.1 BTC to satoshi</a></li>
+          <li><a href="/1-btc-to-satoshi/">1 BTC to satoshi</a></li>
+          <li><a href="/2-btc-to-satoshi/">2 BTC to satoshi</a></li>
+        </ul>
+      </section>
 
-        <details>
-          <summary>What is a satoshi?</summary>
-          <p>A satoshi (sat) is the smallest unit of Bitcoin. 1 satoshi equals 0.00000001 BTC.</p>
-        </details>
-
-        <details>
-          <summary>How many satoshis are in one Bitcoin?</summary>
-          <p>There are 100,000,000 satoshis (sats) in 1 Bitcoin (BTC).</p>
-        </details>
-
-        <details>
-          <summary>Is the Bitcoin price updated in real time?</summary>
-          <p>No. This BTC to satoshi converter uses a fixed conversion rate: 1 BTC = 100,000,000 sats.</p>
-        </details>
-
-        <details>
-          <summary>Can I convert any fiat currency to satoshis?</summary>
-          <p>This page converts BTC to satoshis. To convert fiat currencies like EUR, USD, GBP or CAD, use the dedicated currency converter pages on this site.</p>
-        </details>
-
-        <details>
-          <summary>Is this satoshi converter free?</summary>
-          <p>Yes. It’s a free tool to quickly estimate BTC and satoshi amounts from fiat currencies.</p>
-        </details>
+      <section class="related">
+        <h2>Other currency converters</h2>
+        <ul>
+          <li><a href="/eur-to-satoshi/">EUR to satoshi</a></li>
+          <li><a href="/usd-to-satoshi/">USD to satoshi</a></li>
+          <li><a href="/gbp-to-satoshi/">GBP to satoshi</a></li>
+          <li><a href="/cad-to-satoshi/">CAD to satoshi</a></li>
+        </ul>
       </section>
 
       <footer class="footer">
-        <p>
-          © <span id="year"></span> satoshi-converter.com · Estimates only · Not financial advice
-        </p>
+        <p>© <span id="year"></span> satoshi-converter.com · Estimates only · Not financial advice</p>
       </footer>
     </section>
   </main>
 
-  <script src="./btc-to-satoshi.js" defer></script>
+  <script src="/btc-to-satoshi.js" defer></script>
 </body>
 </html>

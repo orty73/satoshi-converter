@@ -39,6 +39,18 @@
     <priority>0.8</priority>
   </url>
 
+  <url>
+    <loc>https://satoshi-converter.com/jpy-to-satoshi/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://satoshi-converter.com/cny-to-satoshi/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <!-- BTC long-tail pages -->
   <url>
     <loc>https://satoshi-converter.com/0-01-btc-to-satoshi/</loc>

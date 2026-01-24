@@ -6,8 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <title>JPY to Satoshi Converter — Convert Japanese Yen to Sats</title>
-  <meta name="description" content="Convert Japanese yen (JPY) to satoshis instantly using real-time Bitcoin prices. Free JPY to satoshi converter." />
 
+  <meta name="description" content="Convert Japanese yen (JPY) to satoshis instantly using real-time Bitcoin prices. Free JPY to satoshi converter." />
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://satoshi-converter.com/jpy-to-satoshi/" />
 
@@ -37,7 +37,7 @@
   <header class="wrap">
     <a class="brand" href="/">Satoshi Converter</a>
     <nav class="nav">
-      <a href="#faq">FAQ</a>
+      <a href="/#faq">FAQ</a>
     </nav>
   </header>
 
@@ -93,8 +93,10 @@
         <p class="note" id="statusNote" aria-live="polite"></p>
       </div>
 
-      <!-- Ads -->
-      <div class="ad-slot" aria-label="Advertisement"></div>
+      <!-- Ads placeholder -->
+      <div class="ad-slot" aria-label="Advertisement">
+        <div class="ad-inner">Ad slot (enable after AdSense approval)</div>
+      </div>
 
       <section class="seo">
         <h2>Convert JPY to satoshis (sats)</h2>
@@ -104,32 +106,46 @@
         </p>
       </section>
 
-      <!-- 🔗 INTERNAL LINKING : JPY LONG TAIL -->
+      <!-- Popular JPY long-tail -->
       <section class="related">
         <h2>Popular JPY conversions</h2>
         <ul>
           <li><a href="/1000-jpy-to-satoshi/">1000 JPY to satoshi</a></li>
-          <li><a href="/10000-jpy-to-satoshi/">10,000 JPY to satoshi</a></li>
-          <li><a href="/100000-jpy-to-satoshi/">100,000 JPY to satoshi</a></li>
+          <li><a href="/10000-jpy-to-satoshi/">10000 JPY to satoshi</a></li>
+          <li><a href="/100000-jpy-to-satoshi/">100000 JPY to satoshi</a></li>
         </ul>
       </section>
 
+      <!-- Global internal linking -->
       <section class="related">
         <h2>Other currency converters</h2>
         <ul>
           <li><a href="/eur-to-satoshi/">EUR to satoshi</a></li>
           <li><a href="/usd-to-satoshi/">USD to satoshi</a></li>
           <li><a href="/gbp-to-satoshi/">GBP to satoshi</a></li>
+          <li><a href="/cad-to-satoshi/">CAD to satoshi</a></li>
+          <li><a href="/chf-to-satoshi/">CHF to satoshi</a></li>
+          <li><a href="/cny-to-satoshi/">CNY to satoshi</a></li>
+          <li><a href="/aud-to-satoshi/">AUD to satoshi</a></li>
           <li><a href="/btc-to-satoshi/">BTC to satoshi</a></li>
         </ul>
       </section>
 
       <footer class="footer">
-        <p>© <span id="year"></span> satoshi-converter.com · Estimates only · Not financial advice</p>
+        <p>
+          © <span id="year"></span> satoshi-converter.com ·
+          <a href="/privacy/">Privacy</a> ·
+          <a href="/terms/">Terms</a> ·
+          <a href="/contact/">Contact</a> ·
+          Estimates only · Not financial advice
+        </p>
       </footer>
     </section>
   </main>
 
   <script src="/app.js" defer></script>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>

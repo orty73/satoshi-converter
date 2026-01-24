@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>10 USD to Satoshi | Convert 10 Dollars to Sats</title>
+  <meta name="description" content="Convert 10 USD to satoshis using the current Bitcoin price. See how many sats you get for 10 US dollars." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://satoshi-converter.com/10-usd-to-satoshi/" />
+
+  <meta property="og:title" content="10 USD to Satoshi Converter" />
+  <meta property="og:description" content="Convert 10 US dollars to satoshis using the current BTC price." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://satoshi-converter.com/10-usd-to-satoshi/" />
+
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+
+<body>
+<header class="wrap">
+  <a class="brand" href="/">Satoshi Converter</a>
+</header>
+
+<main class="wrap">
+<section class="hero">
+  <h1>10 USD to Satoshi</h1>
+  <p class="subtitle">
+    Convert <strong>10 US dollars (USD)</strong> to <strong>satoshis (sats)</strong>
+    using the current Bitcoin price.
+  </p>
+
+  <div class="card">
+    <p class="result-big">
+      <strong id="result">— satoshis</strong>
+    </p>
+    <p class="note">Estimate based on the latest BTC market price.</p>
+  </div>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> satoshi-converter.com · Not financial advice</p>
+  </footer>
+</section>
+</main>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+
+async function convert() {
+  try {
+    const res = await fetch("https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd");
+    const data = await res.json();
+    const sats = Math.round((10 / data.bitcoin.usd) * 100000000);
+    document.getElementById("result").textContent = sats.toLocaleString() + " satoshis";
+  } catch {
+    document.getElementById("result").textContent = "Conversion unavailable";
+  }
+}
+convert();
+</script>
+
+</body>
+</html>

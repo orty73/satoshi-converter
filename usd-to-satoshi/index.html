@@ -5,9 +5,9 @@
   <meta name="google-site-verification" content="oqPigQ6KXuXqX9iOWO8DuprwvOO921Igd0EBhLAEupI" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>USD to Satoshi Converter — Convert Dollars to Sats</title>
+  <title>USD to Satoshi Converter — Convert US Dollars to Sats</title>
 
-  <meta name="description" content="Convert US dollars (USD) to satoshis instantly using the current Bitcoin price." />
+  <meta name="description" content="Convert US dollars (USD) to satoshis instantly using real-time Bitcoin prices. Free USD to satoshi converter." />
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://satoshi-converter.com/usd-to-satoshi/" />
 
@@ -28,7 +28,7 @@
     "url":"https://satoshi-converter.com/usd-to-satoshi/",
     "applicationCategory":"FinanceApplication",
     "operatingSystem":"All",
-    "description":"Convert US Dollars (USD) into Bitcoin (BTC) and satoshis using real-time BTC prices."
+    "description":"Convert US dollars (USD) into Bitcoin (BTC) and satoshis using real-time BTC prices."
   }
   </script>
 </head>
@@ -37,13 +37,14 @@
   <header class="wrap">
     <a class="brand" href="/">Satoshi Converter</a>
     <nav class="nav">
-      <a href="#faq">FAQ</a>
+      <a href="/#faq">FAQ</a>
     </nav>
   </header>
 
   <main class="wrap">
     <section class="hero">
       <h1>USD to Bitcoin & Satoshis</h1>
+
       <p class="subtitle">
         Instantly convert US dollars (USD) into <strong>BTC</strong> and <strong>satoshis</strong> using real-time market prices.
       </p>
@@ -92,8 +93,10 @@
         <p class="note" id="statusNote" aria-live="polite"></p>
       </div>
 
-      <!-- Ads -->
-      <div class="ad-slot" aria-label="Advertisement"></div>
+      <!-- Ads placeholder -->
+      <div class="ad-slot" aria-label="Advertisement">
+        <div class="ad-inner">Ad slot (enable after AdSense approval)</div>
+      </div>
 
       <section class="seo">
         <h2>Convert USD to satoshis (sats)</h2>
@@ -103,7 +106,7 @@
         </p>
       </section>
 
-      <!-- 🔗 INTERNAL LINKING -->
+      <!-- Popular USD long-tail -->
       <section class="related">
         <h2>Popular USD conversions</h2>
         <ul>
@@ -113,22 +116,36 @@
         </ul>
       </section>
 
+      <!-- Global internal linking -->
       <section class="related">
         <h2>Other currency converters</h2>
         <ul>
           <li><a href="/eur-to-satoshi/">EUR to satoshi</a></li>
           <li><a href="/gbp-to-satoshi/">GBP to satoshi</a></li>
           <li><a href="/cad-to-satoshi/">CAD to satoshi</a></li>
+          <li><a href="/chf-to-satoshi/">CHF to satoshi</a></li>
+          <li><a href="/jpy-to-satoshi/">JPY to satoshi</a></li>
+          <li><a href="/cny-to-satoshi/">CNY to satoshi</a></li>
+          <li><a href="/aud-to-satoshi/">AUD to satoshi</a></li>
           <li><a href="/btc-to-satoshi/">BTC to satoshi</a></li>
         </ul>
       </section>
 
       <footer class="footer">
-        <p>© <span id="year"></span> satoshi-converter.com · Estimates only · Not financial advice</p>
+        <p>
+          © <span id="year"></span> satoshi-converter.com ·
+          <a href="/privacy/">Privacy</a> ·
+          <a href="/terms/">Terms</a> ·
+          <a href="/contact/">Contact</a> ·
+          Estimates only · Not financial advice
+        </p>
       </footer>
     </section>
   </main>
 
   <script src="/app.js" defer></script>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>

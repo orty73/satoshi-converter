@@ -7,20 +7,19 @@
 
   <title>CAD to Satoshi Converter — Convert Canadian Dollars to Sats</title>
 
-<meta name="description" content="Convert Canadian dollars (CAD) to satoshis instantly using real-time Bitcoin prices. Free CAD to satoshi converter." />
-
+  <meta name="description" content="Convert Canadian dollars (CAD) to satoshis instantly using real-time Bitcoin prices. Free CAD to satoshi converter." />
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://satoshi-converter.com/cad-to-satoshi/" />
 
-
   <!-- Open Graph -->
-    <meta property="og:title" content="CAD to Satoshi Converter — Convert CAD to Sats" />
-<meta property="og:description" content="Convert CAD to satoshis instantly using real-time Bitcoin prices." />
-<meta property="og:url" content="https://satoshi-converter.com/cad-to-satoshi/" />
- <meta property="og:type" content="website" />
+  <meta property="og:title" content="CAD to Satoshi Converter — Convert CAD to Sats" />
+  <meta property="og:description" content="Convert CAD to satoshis instantly using real-time Bitcoin prices." />
+  <meta property="og:url" content="https://satoshi-converter.com/cad-to-satoshi/" />
+  <meta property="og:type" content="website" />
+
   <link rel="stylesheet" href="/styles.css" />
 
-  <!-- Schema.org (WebApplication + FAQ) -->
+  <!-- Schema.org (WebApplication) -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -30,40 +29,6 @@
     "applicationCategory":"FinanceApplication",
     "operatingSystem":"All",
     "description":"Convert Canadian dollars (CAD) into Bitcoin (BTC) and satoshis using real-time BTC prices."
-  }
-  </script>
-
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"FAQPage",
-    "mainEntity":[
-      {
-        "@type":"Question",
-        "name":"What is a satoshi?",
-        "acceptedAnswer":{"@type":"Answer","text":"A satoshi (sat) is the smallest unit of Bitcoin. 1 satoshi equals 0.00000001 BTC."}
-      },
-      {
-        "@type":"Question",
-        "name":"How many satoshis are in one Bitcoin?",
-        "acceptedAnswer":{"@type":"Answer","text":"There are 100,000,000 satoshis (sats) in 1 Bitcoin (BTC)."}
-      },
-      {
-        "@type":"Question",
-        "name":"Is the Bitcoin price updated in real time?",
-        "acceptedAnswer":{"@type":"Answer","text":"This converter refreshes the BTC price periodically and uses the latest available market data from a public pricing API."}
-      },
-      {
-        "@type":"Question",
-        "name":"Can I convert any fiat currency to satoshis?",
-        "acceptedAnswer":{"@type":"Answer","text":"You can convert many common fiat currencies (EUR, USD, GBP and more). Availability depends on the pricing API coverage."}
-      },
-      {
-        "@type":"Question",
-        "name":"Is this satoshi converter free?",
-        "acceptedAnswer":{"@type":"Answer","text":"Yes. It is a free tool to quickly estimate BTC and satoshi amounts from fiat currencies."}
-      }
-    ]
   }
   </script>
 </head>
@@ -80,9 +45,9 @@
     <section class="hero">
       <h1>CAD to Bitcoin & Satoshis</h1>
 
-<p class="subtitle">
-  Convert Canadian dollars (CAD) to satoshis instantly using real-time Bitcoin prices.
-</p>
+      <p class="subtitle">
+        Instantly convert Canadian dollars (CAD) into <strong>BTC</strong> and <strong>satoshis</strong> using real-time market prices.
+      </p>
 
       <div class="card">
         <div class="row">
@@ -90,30 +55,19 @@
           <input id="amount" inputmode="decimal" autocomplete="off" placeholder="100" value="100" />
         </div>
 
-
         <div class="row" style="display:none;">
-  <label for="currency">Currency</label>
-  <select id="currency" disabled>
-    <option value="eur">EUR — Euro</option>
-    <option value="usd">USD — US Dollar</option>
-    <option value="gbp">GBP — British Pound</option>
-    <option value="chf">CHF — Swiss Franc</option>
-    <option value="cad" selected>CAD — Canadian Dollar</option>
-    <option value="aud">AUD — Australian Dollar</option>
-    <option value="jpy">JPY — Japanese Yen</option>
-    <option value="sek">SEK — Swedish Krona</option>
-    <option value="nok">NOK — Norwegian Krone</option>
-    <option value="dkk">DKK — Danish Krone</option>
-  </select>
-</div>
-<div class="row">
-  <label>Currency</label>
-  <div style="padding:12px 12px; border:1px solid rgba(255,255,255,.12); border-radius:14px; background:rgba(255,255,255,.06);">
-    CAD — Canadian Dollar
-  </div>
-</div>
+          <label for="currency">Currency</label>
+          <select id="currency" disabled>
+            <option value="cad" selected>CAD — Canadian Dollar</option>
+          </select>
+        </div>
 
-
+        <div class="row">
+          <label>Currency</label>
+          <div style="padding:12px;border:1px solid rgba(255,255,255,.12);border-radius:14px;background:rgba(255,255,255,.06);">
+            CAD — Canadian Dollar
+          </div>
+        </div>
 
         <div class="results">
           <div class="result">
@@ -125,7 +79,7 @@
             <div class="v" id="satOut">—</div>
           </div>
         </div>
-      
+
         <div class="meta">
           <div>Price source: <span id="sourceName">CoinGecko</span></div>
           <div>Last update: <span id="lastUpdate">—</span></div>
@@ -139,64 +93,39 @@
         <p class="note" id="statusNote" aria-live="polite"></p>
       </div>
 
-      <!-- Adsense placeholder (enable after approval) -->
-      <div class="ad-slot" aria-label="Advertisement">
-        <div class="ad-inner">Ad slot (enable after AdSense approval)</div>
-      </div>
+      <!-- Ads -->
+      <div class="ad-slot" aria-label="Advertisement"></div>
 
       <section class="seo">
         <h2>Convert CAD to satoshis (sats)</h2>
         <p>
-          This satoshi converter helps you quickly estimate how much <strong>Bitcoin (BTC)</strong> and how many <strong>satoshis</strong>
-          you get for a given fiat amount (EUR, USD, GBP and more). A satoshi is the smallest unit of Bitcoin: <strong>1 sat = 0.00000001 BTC</strong>.
-        </p>
-        <p>
-          Prices move constantly, so results are estimates based on the latest available market price.
+          Convert any amount of Canadian dollars into Bitcoin and satoshis using the current BTC price.
+          A satoshi is the smallest unit of Bitcoin (1 sat = 0.00000001 BTC).
         </p>
       </section>
-<section class="related">
-  <h2>Other currency converters</h2>
-  <ul>
-    <li><a href="/eur-to-satoshi/">EUR to satoshi converter</a></li>
-    <li><a href="/usd-to-satoshi/">USD to satoshi converter</a></li>
-    <li><a href="/gbp-to-satoshi/">GBP to satoshi converter</a></li>
-    <li><a href="/btc-to-satoshi/">BTC to satoshi converter</a></li>
-  </ul>
-</section>
 
-      <section id="faq" class="faq">
-        <h2>Frequently Asked Questions</h2>
+      <!-- 🔗 INTERNAL LINKING -->
+      <section class="related">
+        <h2>Popular CAD conversions</h2>
+        <ul>
+          <li><a href="/10-cad-to-satoshi/">10 CAD to satoshi</a></li>
+          <li><a href="/100-cad-to-satoshi/">100 CAD to satoshi</a></li>
+          <li><a href="/1000-cad-to-satoshi/">1000 CAD to satoshi</a></li>
+        </ul>
+      </section>
 
-        <details>
-          <summary>What is a satoshi?</summary>
-          <p>A satoshi (sat) is the smallest unit of Bitcoin. 1 satoshi equals 0.00000001 BTC.</p>
-        </details>
-
-        <details>
-          <summary>How many satoshis are in one Bitcoin?</summary>
-          <p>There are 100,000,000 satoshis (sats) in 1 Bitcoin (BTC).</p>
-        </details>
-
-        <details>
-          <summary>Is the Bitcoin price updated in real time?</summary>
-          <p>This tool refreshes pricing periodically and uses the latest available market data from a public pricing API.</p>
-        </details>
-
-        <details>
-          <summary>Can I convert any fiat currency to satoshis?</summary>
-          <p>You can convert many common fiat currencies. Availability depends on the pricing API coverage.</p>
-        </details>
-
-        <details>
-          <summary>Is this satoshi converter free?</summary>
-          <p>Yes. It’s a free tool to quickly estimate BTC and satoshi amounts from fiat currencies.</p>
-        </details>
+      <section class="related">
+        <h2>Other currency converters</h2>
+        <ul>
+          <li><a href="/eur-to-satoshi/">EUR to satoshi</a></li>
+          <li><a href="/usd-to-satoshi/">USD to satoshi</a></li>
+          <li><a href="/gbp-to-satoshi/">GBP to satoshi</a></li>
+          <li><a href="/btc-to-satoshi/">BTC to satoshi</a></li>
+        </ul>
       </section>
 
       <footer class="footer">
-        <p>
-          © <span id="year"></span> satoshi-converter.com · Estimates only · Not financial advice
-        </p>
+        <p>© <span id="year"></span> satoshi-converter.com · Estimates only · Not financial advice</p>
       </footer>
     </section>
   </main>

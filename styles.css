@@ -10,7 +10,14 @@
 }
 
 * { box-sizing: border-box; }
-html, body { margin: 0; padding: 0; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 body {
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
   background: radial-gradient(1200px 800px at 20% 0%, rgba(42,97,255,.25), transparent 60%),
@@ -48,13 +55,22 @@ h1 {
   padding: 18px;
   box-shadow: 0 12px 40px rgba(0,0,0,.35);
   backdrop-filter: blur(8px);
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
-.row { display: grid; grid-template-columns: 120px 1fr; gap: 12px; align-items: center; margin: 10px 0; }
+.row {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 12px;
+  align-items: center;
+  margin: 10px 0;
+}
 label { color: var(--muted); font-size: .95rem; }
 
 input, select {
   width: 100%;
+  max-width: 100%;
   background: rgba(255,255,255,.06);
   border: 1px solid var(--line);
   border-radius: 14px;
@@ -69,15 +85,23 @@ input::placeholder { color: rgba(233,238,252,.45); }
   grid-template-columns: 1fr 1fr;
   gap: 12px;
   margin-top: 14px;
+  max-width: 100%;
 }
 .result {
   padding: 14px;
   background: rgba(255,255,255,.06);
   border: 1px solid var(--line);
   border-radius: 14px;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 .k { color: var(--muted); font-size: .92rem; }
-.v { font-size: 1.2rem; font-weight: 750; margin-top: 6px; word-break: break-word; }
+.v {
+  font-size: 1.2rem;
+  font-weight: 750;
+  margin-top: 6px;
+  word-break: break-word;
+}
 
 .meta {
   display: flex;
@@ -108,8 +132,15 @@ button.secondary { background: var(--btn2); }
   border-radius: var(--radius);
   padding: 16px;
   color: var(--muted);
+  max-width: 100%;
+  overflow-x: hidden;
 }
 .ad-inner { text-align: center; }
+
+/* Prevent ads/iframes from forcing overflow on mobile */
+iframe, ins {
+  max-width: 100% !important;
+}
 
 .seo, .faq {
   margin-top: 22px;
@@ -117,6 +148,8 @@ button.secondary { background: var(--btn2); }
   border: 1px solid var(--line);
   border-radius: var(--radius);
   padding: 18px;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 .seo h2, .faq h2 { margin: 0 0 10px; font-size: 1.15rem; }
 
@@ -134,8 +167,10 @@ details p { margin: 8px 0 0; color: var(--muted); }
   .row { grid-template-columns: 1fr; }
   .results { grid-template-columns: 1fr; }
 }
+
 .fixed-currency{
   width: 100%;
+  max-width: 100%;
   background: rgba(255,255,255,.06);
   border: 1px solid var(--line);
   border-radius: 14px;

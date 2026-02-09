@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <title>BTC to Satoshi Converter — Convert Bitcoin to Sats</title>
-
   <meta name="description" content="Convert Bitcoin (BTC) to satoshis instantly. One bitcoin equals exactly 100,000,000 sats. Free BTC to satoshi converter." />
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://satoshi-converter.com/btc-to-satoshi/" />
@@ -19,7 +18,7 @@
 
   <link rel="stylesheet" href="/styles.css" />
 
-  <!-- AdSense Auto Ads (required) -->
+  <!-- AdSense loader (required once per page) -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3692358856119558"
     crossorigin="anonymous"></script>
 
@@ -38,130 +37,137 @@
 </head>
 
 <body>
-  <header class="wrap">
-    <a class="brand" href="/">Satoshi Converter</a>
-    <nav class="nav">
-      <a href="/#faq">FAQ</a>
-    </nav>
-  </header>
+<header class="wrap">
+  <a class="brand" href="/">Satoshi Converter</a>
+  <nav class="nav">
+    <a href="/#faq">FAQ</a>
+  </nav>
+</header>
 
-  <main class="wrap">
-    <section class="hero">
-      <h1>BTC to Satoshis</h1>
+<main class="wrap">
+<section class="hero">
 
-      <p class="subtitle">
-        Convert Bitcoin (BTC) to satoshis instantly.
-        <strong>1 BTC = 100,000,000 sats</strong> (fixed conversion).
-      </p>
+  <h1>BTC to Satoshis</h1>
+  <p class="subtitle">
+    Convert Bitcoin (BTC) to satoshis instantly.
+    <strong>1 BTC = 100,000,000 sats</strong> (fixed conversion).
+  </p>
 
-      <div class="card">
-        <div class="row">
-          <label for="amount">Amount (BTC)</label>
-          <input id="amount" inputmode="decimal" autocomplete="off" placeholder="1" value="1" />
-        </div>
+  <div class="card">
+    <div class="row">
+      <label for="amount">Amount (BTC)</label>
+      <input id="amount" inputmode="decimal" autocomplete="off" placeholder="1" value="1" />
+    </div>
 
-        <div class="row">
-          <label>Currency</label>
-          <div style="padding:12px;border:1px solid rgba(255,255,255,.12);border-radius:14px;background:rgba(255,255,255,.06);">
-            BTC — Bitcoin
-          </div>
-        </div>
+    <div class="row">
+      <label>Currency</label>
+      <div class="fixed-currency">BTC — Bitcoin</div>
+    </div>
 
-        <div class="results">
-          <div class="result" style="width:100%;">
-            <div class="k">Satoshis (sats)</div>
-            <div class="v" id="satOut">—</div>
-          </div>
-        </div>
-
-        <div class="meta">
-          <div>Conversion: <span id="sourceName">Fixed rate</span></div>
-          <div>Last update: <span id="lastUpdate">—</span></div>
-        </div>
-
-        <div class="actions">
-          <button id="copyBtn" type="button">Copy result</button>
-        </div>
-
-        <p class="note" id="statusNote" aria-live="polite"></p>
+    <div class="results">
+      <div class="result" style="width:100%;">
+        <div class="k">Satoshis (sats)</div>
+        <div class="v" id="satOut">—</div>
       </div>
+    </div>
 
-      <!-- Ads (Auto Ads will decide placement; keep an empty container only if you want spacing) -->
-      <div class="ad-slot" aria-label="Advertisement" style="min-height:1px;"></div>
+    <div class="meta">
+      <div>Conversion: <span id="sourceName">Fixed rate</span></div>
+      <div>Last update: <span id="lastUpdate">—</span></div>
+    </div>
 
-      <section class="seo">
-        <h2>Convert BTC to satoshis (sats)</h2>
-        <p>
-          This tool converts any amount of <strong>Bitcoin (BTC)</strong> into <strong>satoshis</strong>.
-          A satoshi is the smallest unit of Bitcoin: <strong>1 sat = 0.00000001 BTC</strong>.
-        </p>
-        <p>
-          This conversion is exact and does not depend on market prices.
-        </p>
-      </section>
+    <div class="actions">
+      <button id="copyBtn" type="button">Copy result</button>
+    </div>
 
-      <!-- Global internal linking -->
-      <section class="related">
-        <h2>Other currency converters</h2>
-        <ul>
-          <li><a href="/eur-to-satoshi/">EUR to satoshi</a></li>
-          <li><a href="/usd-to-satoshi/">USD to satoshi</a></li>
-          <li><a href="/gbp-to-satoshi/">GBP to satoshi</a></li>
-          <li><a href="/cad-to-satoshi/">CAD to satoshi</a></li>
-          <li><a href="/chf-to-satoshi/">CHF to satoshi</a></li>
-          <li><a href="/jpy-to-satoshi/">JPY to satoshi</a></li>
-          <li><a href="/cny-to-satoshi/">CNY to satoshi</a></li>
-          <li><a href="/aud-to-satoshi/">AUD to satoshi</a></li>
-        </ul>
-      </section>
+    <p class="note" id="statusNote" aria-live="polite"></p>
+  </div>
 
-      <footer class="footer">
-        <p>
-          © <span id="year"></span> satoshi-converter.com ·
-          <a href="/privacy/">Privacy</a> ·
-          <a href="/terms/">Terms</a> ·
-          <a href="/contact/">Contact</a> ·
-          Estimates only · Not financial advice
-        </p>
-      </footer>
-    </section>
-  </main>
-
+  <div class="ad-slot" aria-label="Advertisement">
+    <ins class="adsbygoogle"
+      style="display:block"
+      data-ad-client="ca-pub-3692358856119558"
+      data-ad-slot="7211178397"
+      data-ad-format="auto"
+      data-full-width-responsive="true"></ins>
+  </div>
   <script>
-    const SATS_PER_BTC = 100000000;
-    const amountEl = document.getElementById("amount");
-    const satOutEl = document.getElementById("satOut");
-    const lastUpdateEl = document.getElementById("lastUpdate");
-    const copyBtn = document.getElementById("copyBtn");
-    const statusNoteEl = document.getElementById("statusNote");
-
-    function render() {
-      const v = Number(String(amountEl.value).replace(",", "."));
-      if (!Number.isFinite(v) || v < 0) {
-        satOutEl.textContent = "—";
-        statusNoteEl.textContent = "Enter a valid amount.";
-        return;
-      }
-      const sats = Math.round(v * SATS_PER_BTC);
-      satOutEl.textContent = sats.toLocaleString();
-      lastUpdateEl.textContent = new Date().toLocaleString();
-      statusNoteEl.textContent = "";
-    }
-
-    amountEl.addEventListener("input", render);
-    copyBtn.addEventListener("click", async () => {
-      const text = `${amountEl.value} BTC = ${satOutEl.textContent} sats (via satoshi-converter.com)`;
-      try {
-        await navigator.clipboard.writeText(text);
-        statusNoteEl.textContent = "Copied to clipboard.";
-        setTimeout(() => statusNoteEl.textContent = "", 1500);
-      } catch {
-        statusNoteEl.textContent = "Copy failed.";
-      }
-    });
-
-    document.getElementById("year").textContent = new Date().getFullYear();
-    render();
+    (adsbygoogle = window.adsbygoogle || []).push({});
   </script>
+
+  <section class="seo">
+    <h2>Convert BTC to satoshis (sats)</h2>
+    <p>
+      This tool converts any amount of <strong>Bitcoin (BTC)</strong> into <strong>satoshis</strong>.
+      A satoshi is the smallest unit of Bitcoin: <strong>1 sat = 0.00000001 BTC</strong>.
+    </p>
+    <p>
+      This conversion is exact and does not depend on market prices.
+    </p>
+  </section>
+
+  <section class="related">
+    <h2>Other currency converters</h2>
+    <ul>
+      <li><a href="/eur-to-satoshi/">EUR to satoshi</a></li>
+      <li><a href="/usd-to-satoshi/">USD to satoshi</a></li>
+      <li><a href="/gbp-to-satoshi/">GBP to satoshi</a></li>
+      <li><a href="/cad-to-satoshi/">CAD to satoshi</a></li>
+      <li><a href="/chf-to-satoshi/">CHF to satoshi</a></li>
+      <li><a href="/jpy-to-satoshi/">JPY to satoshi</a></li>
+      <li><a href="/cny-to-satoshi/">CNY to satoshi</a></li>
+      <li><a href="/aud-to-satoshi/">AUD to satoshi</a></li>
+    </ul>
+  </section>
+
+  <footer class="footer">
+    <p>
+      © <span id="year"></span> satoshi-converter.com ·
+      <a href="/privacy/">Privacy</a> ·
+      <a href="/terms/">Terms</a> ·
+      <a href="/contact/">Contact</a> ·
+      Estimates only · Not financial advice
+    </p>
+  </footer>
+
+</section>
+</main>
+
+<script>
+  const SATS_PER_BTC = 100000000;
+  const amountEl = document.getElementById("amount");
+  const satOutEl = document.getElementById("satOut");
+  const lastUpdateEl = document.getElementById("lastUpdate");
+  const copyBtn = document.getElementById("copyBtn");
+  const statusNoteEl = document.getElementById("statusNote");
+
+  function render() {
+    const v = Number(String(amountEl.value).replace(",", "."));
+    if (!Number.isFinite(v) || v < 0) {
+      satOutEl.textContent = "—";
+      statusNoteEl.textContent = "Enter a valid amount.";
+      return;
+    }
+    const sats = Math.round(v * SATS_PER_BTC);
+    satOutEl.textContent = sats.toLocaleString();
+    lastUpdateEl.textContent = new Date().toLocaleString();
+    statusNoteEl.textContent = "";
+  }
+
+  amountEl.addEventListener("input", render);
+  copyBtn.addEventListener("click", async () => {
+    const text = `${amountEl.value} BTC = ${satOutEl.textContent} sats (via satoshi-converter.com)`;
+    try {
+      await navigator.clipboard.writeText(text);
+      statusNoteEl.textContent = "Copied to clipboard.";
+      setTimeout(() => statusNoteEl.textContent = "", 1500);
+    } catch {
+      statusNoteEl.textContent = "Copy failed.";
+    }
+  });
+
+  document.getElementById("year").textContent = new Date().getFullYear();
+  render();
+</script>
 </body>
 </html>
